@@ -22,13 +22,11 @@ public class IOUState implements ContractState {
     private final int value;
     private final Party lender;
     private final Party borrower;
-    private String cargo;
 
-    public IOUState(int value, Party lender, Party borrower, String cargo) {
+    public IOUState(int value, Party lender, Party borrower) {
         this.value = value;
         this.lender = lender;
         this.borrower = borrower;
-        this.cargo = cargo;
     }
 
     public int getValue() {
@@ -43,13 +41,6 @@ public class IOUState implements ContractState {
         return borrower;
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
 
     @Override
     public List<AbstractParty> getParticipants() {
