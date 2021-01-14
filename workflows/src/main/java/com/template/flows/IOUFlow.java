@@ -27,7 +27,6 @@ import net.corda.core.transactions.TransactionBuilder;
 @StartableByRPC
 public class IOUFlow extends FlowLogic<Void> {
     private final Integer iouValue;
-    private final Integer iouSalue;
     private final Party otherParty;
 
     /**
@@ -36,8 +35,7 @@ public class IOUFlow extends FlowLogic<Void> {
      */
     private final ProgressTracker progressTracker = new ProgressTracker();
 
-    public IOUFlow(Integer iouValue, Integer iouSalue, Party otherParty) {
-        this.iouSalue = iouSalue;
+    public IOUFlow(Integer iouValue, Party otherParty) {
         this.iouValue = iouValue;
         this.otherParty = otherParty;
     }
@@ -57,7 +55,7 @@ public class IOUFlow extends FlowLogic<Void> {
         Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
 
         // We create the transaction components.
-        IOUState outputState = new IOUState(iouValue, iouSalue, getOurIdentity(), otherParty);
+        IOUState outputState = new IOUState(iouValue, getOurIdentity(), otherParty);
         Command command = new Command<>(new TemplateContract.Commands.Send(), getOurIdentity().getOwningKey());
 
         // We create a transaction builder and add the components.
