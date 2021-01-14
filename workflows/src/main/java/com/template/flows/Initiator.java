@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @StartableByRPC
 public class Initiator extends FlowLogic<SignedTransaction> {
 
-    // We will not use these ProgressTracker for this Hello-World sample
+    // We will not use these ProgressTracker for this Hello-World sample.. yeh
     private final ProgressTracker progressTracker = new ProgressTracker();
     @Override
     public ProgressTracker getProgressTracker() {
