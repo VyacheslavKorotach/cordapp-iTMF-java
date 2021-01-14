@@ -15,18 +15,18 @@ import java.util.List;
 @BelongsToContract(TemplateContract.class)
 // Replace TemplateState's definition with:
 public class IOUState implements ContractState {
-    private final int value1;
+    private final int valuee;
     private final Party lender;
     private final Party borrower;
 
-    public IOUState(int value1, Party lender, Party borrower) {
-        this.value1 = value1;
+    public IOUState(int valuee, Party lender, Party borrower) {
+        this.valuee = valuee;
         this.lender = lender;
         this.borrower = borrower;
     }
 
-    public int getValue1() {
-        return value1;
+    public int getValuee() {
+        return valuee;
     }
 
     public Party getLender() {
