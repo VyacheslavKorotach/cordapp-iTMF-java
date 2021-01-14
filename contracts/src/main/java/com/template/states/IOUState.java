@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // *********
-// * State *
+// * State */
 // *********
 @BelongsToContract(TemplateContract.class)
 // Replace TemplateState's definition with:
