@@ -22,12 +22,14 @@ public class IOUState implements ContractState {
     private final int value;
     private final Party lender;
     private final Party borrower;
+    private String cargo;
     private Status status;
 
-    public IOUState(int value, Party lender, Party borrower) {
+    public IOUState(int value, Party lender, Party borrower, String cargo) {
         this.value = value;
         this.lender = lender;
         this.borrower = borrower;
+        this.cargo = cargo;
         this.status = Status.GAME_IN_PROGRESS;
     }
 
@@ -62,6 +64,14 @@ public class IOUState implements ContractState {
 
     public Party getBorrower() {
         return borrower;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
     @Override

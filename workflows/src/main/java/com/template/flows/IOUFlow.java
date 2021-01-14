@@ -28,6 +28,7 @@ import net.corda.core.transactions.TransactionBuilder;
 public class IOUFlow extends FlowLogic<Void> {
     private final Integer iouValue;
     private final Party otherParty;
+    private String cargo;
 
     /**
      * The progress tracker provides checkpoints indicating the progress of
@@ -35,9 +36,10 @@ public class IOUFlow extends FlowLogic<Void> {
      */
     private final ProgressTracker progressTracker = new ProgressTracker();
 
-    public IOUFlow(Integer iouValue, Party otherParty) {
+    public IOUFlow(Integer iouValue, Party otherParty, String cargo) {
         this.iouValue = iouValue;
         this.otherParty = otherParty;
+        this.cargo = cargo;
     }
 
     @Override
@@ -55,7 +57,7 @@ public class IOUFlow extends FlowLogic<Void> {
         Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
 
         // We create the transaction components.
-        IOUState outputState = new IOUState(iouValue, getOurIdentity(), otherParty);
+        IOUState outputState = new IOUState(iouValue, getOurIdentity(), otherParty, cargo);
         Command command = new Command<>(new TemplateContract.Commands.Send(), getOurIdentity().getOwningKey());
 
         // We create a transaction builder and add the components.
