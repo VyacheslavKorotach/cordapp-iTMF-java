@@ -35,7 +35,7 @@ public class IOUFlow extends FlowLogic<Void> {
      */
     private final ProgressTracker progressTracker = new ProgressTracker();
 
-    public IOUFlow(Integer iouValue, Party otherParty, String cargo) {
+    public IOUFlow(Integer iouValue, Party otherParty) {
         this.iouValue = iouValue;
         this.otherParty = otherParty;
     }
