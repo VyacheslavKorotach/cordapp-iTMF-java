@@ -17,7 +17,7 @@ import java.util.List;
 // * State */
 // *********
 @BelongsToContract(TemplateContract.class)
-// Replace TemplateState's definition with:
+// Replace TemplateState's definition with:..
 public class IOUState implements ContractState {
     private final int val;
     private final Party lender;
@@ -29,7 +29,7 @@ public class IOUState implements ContractState {
         this.borrower = borrower;
     }
 
-    public int getVal() {
+    public int getValue() {
         return val;
     }
 
