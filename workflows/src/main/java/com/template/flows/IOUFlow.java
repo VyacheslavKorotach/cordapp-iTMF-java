@@ -28,7 +28,7 @@ import net.corda.core.transactions.TransactionBuilder;
 public class IOUFlow extends FlowLogic<Void> {
     private final Integer iouValue;
     private final Party otherParty;
-    private String cargo;
+    private final String cargo;
 
     /**
      * The progress tracker provides checkpoints indicating the progress of

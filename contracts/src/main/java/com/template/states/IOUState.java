@@ -23,35 +23,12 @@ public class IOUState implements ContractState {
     private final Party lender;
     private final Party borrower;
     private String cargo;
-    private Status status;
 
     public IOUState(int value, Party lender, Party borrower, String cargo) {
         this.value = value;
         this.lender = lender;
         this.borrower = borrower;
         this.cargo = cargo;
-        this.status = Status.GAME_IN_PROGRESS;
-    }
-
-    @ConstructorForDeserialization
-    public IOUState(int value, Party lender, Party borrower, Status status) {
-        this.value = value;
-        this.lender = lender;
-        this.borrower = borrower;
-        this.status = status;
-    }
-
-    @CordaSerializable
-    public enum Status {
-        GAME_IN_PROGRESS, GAME_OVER
-    }
-
-    public IOUState returnNewState(Integer i){
-        if(i > 2){
-            IOUState b = new IOUState(this.value,this.lender,this.borrower,Status.GAME_OVER);
-            return b;
-        }
-        return null;
     }
 
     public int getValue() {
