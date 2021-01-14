@@ -23,8 +23,8 @@ public class IOUState implements ContractState {
     private final Party lender;
     private final Party borrower;
 
-    public IOUState(int Value, Party lender, Party borrower) {
-        this.val = Value;
+    public IOUState(int value, Party lender, Party borrower) {
+        this.val = value;
         this.lender = lender;
         this.borrower = borrower;
     }
