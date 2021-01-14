@@ -8,7 +8,6 @@ import net.corda.core.identity.Party;
 
 import java.util.Arrays;
 import java.util.List;
-import net.corda.core.identity.Party;
 
 // *********
 // * State *
@@ -16,18 +15,18 @@ import net.corda.core.identity.Party;
 @BelongsToContract(TemplateContract.class)
 // Replace TemplateState's definition with:
 public class IOUState implements ContractState {
-    private final int value;
+    private final int value1;
     private final Party lender;
     private final Party borrower;
 
-    public IOUState(int value, Party lender, Party borrower) {
-        this.value = value;
+    public IOUState(int value1, Party lender, Party borrower) {
+        this.value1 = value1;
         this.lender = lender;
         this.borrower = borrower;
     }
 
-    public int getValue() {
-        return value;
+    public int getValue1() {
+        return value1;
     }
 
     public Party getLender() {
